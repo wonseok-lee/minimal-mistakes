@@ -75,7 +75,7 @@ proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x
 
 ($\leftarrow$) will be treated below.
 
-For general Lipchitz convex function, $\exist y \in \partial f(x^{\star}), y=0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+For general Lipchitz convex function, $\exists y \in \partial f(x^{\star}), y=0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
 
 
 
