@@ -1,8 +1,8 @@
 ---
 title: "Convex Optimization 1"
 date: 2020-07-19 00:00:28 -0400
-use_math: true
 categories: convex optimization
+use_math: true
 ---
 
 # Why Convex Optimization is important?
