@@ -60,9 +60,9 @@ $$
 
 It implies that
 $$
-\frac{f(x+\lambda(y-x))}{\lambda} \leq <\nabla f(x), y-x> -\delta
+\frac{f(x+\lambda(y-x))}{\lambda} <\nabla f(x), y-x> -\delta
 $$
-Let $\lambda \rightarrow 0^{+}$, then, $<\nabla f(x), y-x> \leq <\nabla f(x), y-x> -\delta$
+Let $\lambda \rightarrow 0^{+}$, then, $<\nabla f(x), y-x> <\nabla f(x), y-x> -\delta$
 
 Contradiction!
 
@@ -97,12 +97,12 @@ $$
 And sum of two L-smooth functions is a 2L-smooth function.
 
 proof) let $f = f_1 + f_2$ and $f_1, f_2$ are L-smooth functions.
+
 $$
 \begin{align*}
 f(y) &= f_1(y) +f_2(y) \\
 &\leq f_1(x) + <\nabla f_1(x), y-x>+\frac{L}{2}||y-x||_{2}^{2} + f_2(x) + <\nabla f_2(x), y-x>+\frac{L}{2}||y-x||_{2}^{2} \\
 &= f(x) + <\nabla f(x), y-x>+\frac{L}{2}||y-x||_{2}^{2}
-
 \end{align*}
 $$
 
@@ -120,7 +120,7 @@ $\Rightarrow$ Gradient descent works using Upper linear bound, Mirror descent wo
 A second order differentiable function over a *convex* set $\mathcal{D}$ is L-smooth **if and only if**:
 
 1. $v^{T}\nabla^{2}f(x)v \leq L$ for every unit vector $v$, for every $x \in \mathcal{D}$
-2. $||\nabla f(x) - \nabla f(y)||_2 \leq L||x-y||_2$
+2. $||\nabla f(x) - \nabla f(y)||_{2} \leq L||x-y||_{2}$
 
 
 
@@ -132,7 +132,7 @@ $v^{T}\nabla^{2}f(x)v \geq 0$ for every vector $v$, for every $x \in \mathcal{D}
 
 So BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 
-Suppose $f(x)$ is L-smooth, by the upper quadratic bound, $f(y) \leq f(x) + <\nabla f(x), y-x>+\frac{L}{2}||y-x||_{2}^{2}$
+Suppose $f(x)$ is L-smooth, by the upper quadratic bound, $ f(y) \leq f(x) + <\nabla f(x), y-x>+\frac{L}{2}||y-x||_{2}^{2} $
 
 Take $x = x_t, y= x_{t+1}$. Then,
 $$
