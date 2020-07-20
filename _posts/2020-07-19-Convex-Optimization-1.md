@@ -47,6 +47,7 @@ For every differentiable convex function $f$ over a convex set $\mathcal{D}$, fo
 proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + <\nabla f, y-x>-\delta$ for $\delta>0$.
 
 Then, by convexity(definition), for every $\lambda \in (0,1)$, 
+
 $$
 \begin{align*}
 f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
@@ -166,6 +167,7 @@ We need $T_{\epsilon} = \frac{2(f(x_0) - min_x f(x)}{\eta\epsilon}$ interations.
 proof)
 
 Suppose for every $t \leq T_{\epsilon}, ||\nabla f(x_{t})||_2^{2} > \epsilon$, then
+
 $$
 f(x_{t+1}) < f(x_t) - \frac{\eta}{2}\epsilon
 $$
