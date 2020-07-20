@@ -60,9 +60,9 @@ $$
 
 It implies that
 $$
-\frac{f(x+\lambda(y-x))}{\lambda} <\nabla f(x), y-x> -\delta
+\frac{f(x+\lambda(y-x))}{\lambda} < <\nabla f(x), y-x> -\delta
 $$
-Let $\lambda \rightarrow 0^{+}$, then, $<\nabla f(x), y-x> <\nabla f(x), y-x> -\delta$
+Let $\lambda \rightarrow 0^{+}$, then, $<\nabla f(x), y-x> < <\nabla f(x), y-x> -\delta$
 
 Contradiction!
 
@@ -120,6 +120,7 @@ $\Rightarrow$ Gradient descent works using Upper linear bound, Mirror descent wo
 A second order differentiable function over a *convex* set $\mathcal{D}$ is L-smooth **if and only if**:
 
 1. $v^{T}\nabla^{2}f(x)v \leq L$ for every unit vector $v$, for every $x \in \mathcal{D}$
+
 2. $||\nabla f(x) - \nabla f(y)||_{2} \leq L||x-y||_{2}$
 
 
@@ -152,13 +153,15 @@ When there is no local minima, for a 1st order differentiable convex function $f
 
 proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + <\nabla f(x^{\star}), y-x> = f(x^{\star})$.
 
-($\leftarrow$)  Put $x_{t+1}=x_{t}=x^{\star}$. Then $f(x^{\star}) \leq f(x^{\star}) -\eta\frac{L}{2}||\nabla f(x^{\star})||_{2}^{2}$. It implies $||\nabla f(x^{\star})||_{2}^{2} \leq 0$. So $\nabla f(x^{\star}) = 0$
+($\leftarrow$)  Put $x_{t+1}=x_{t}=x^{\star}$. Then $f(x^{\star}) \leq f(x^{\star}) -\eta\frac{L}{2}||\nabla f(x^{\star})||_{2}^{2}$. 
+
+It implies $||\nabla f(x^{\star})||_{2}^{2} \leq 0$. So $\nabla f(x^{\star}) = 0$
 
 
 
 But if the gradient is too small, slowly converges. Use trade off between fast and accurate.
 
-Given $\epsilon >0$, how many iterations $T$ do we need to find an $x_T$ s.t
+Given $\epsilon >0$, how many iterations $T$ do we need to find an $x_T$ s.t
 $$
 ||\nabla f(x_T)||_2^{2} \leq \epsilon
 $$
