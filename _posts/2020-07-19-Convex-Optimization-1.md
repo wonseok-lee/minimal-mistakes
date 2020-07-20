@@ -70,7 +70,7 @@ Contradiction!
 
 **Theorem**
 
-When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
 
 proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + <\nabla f(x^{\star}), y-x> = f(x^{\star})$.
 
@@ -90,7 +90,7 @@ BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 
 **Definition**: smoothness
 
-a 1st order dierentiable function (not necessarily convex) $f$ over a set (not necessarily convex) $\mathcal{D}$ is called L smooth for L > 0 if
+a 1st order differentiable function (not necessarily convex) $f$ over a set (not necessarily convex) $\mathcal{D}$ is called L smooth for L > 0 if
 $$
 f(y) \leq f(x) + <\nabla f(x), y-x>+\frac{L}{2}||y-x||_{2}^{2}
 $$
@@ -148,7 +148,7 @@ Recall
 
 **Theorem**
 
-When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
 
 proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + <\nabla f(x^{\star}), y-x> = f(x^{\star})$.
 
