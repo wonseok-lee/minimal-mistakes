@@ -92,7 +92,7 @@ BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 
 a 1st order differentiable function (not necessarily convex) $f$ over a set (not necessarily convex) $\mathcal{D}$ is called L smooth for L > 0 if
 $$
-f(y) \leq f(x) + <\nabla f(x), y-x>+\frac{L}{2}||y-x||_{2}^{2}
+f(y) \leq f(x) + <\nabla f(x), y-x>+\frac{L}{2}\|y-x\|_{2}^{2}
 $$
 And sum of two L-smooth functions is a 2L-smooth function.
 
