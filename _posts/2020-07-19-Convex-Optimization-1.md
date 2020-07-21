@@ -42,7 +42,7 @@ Keywords: fast and good(tradeoff between them).
 >
 >proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\nabla f, y-x\rangle-\delta$ for $\delta>0$.
 >
-cThen, by convexity(definition), for every $\lambda \in (0,1)$, 
+>Then, by convexity(definition), for every $\lambda \in (0,1)$, 
 >
 >$$
 >\begin{align*}
@@ -57,10 +57,10 @@ cThen, by convexity(definition), for every $\lambda \in (0,1)$,
 >It implies that
 >
 >$$
->\frac{f(x+\lambda(y-x))}{\lambda} < \langle\nabla f(x), y-x\rangle -\delta
+>\frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta
 >$$
 >
->Let $\lambda \rightarrow 0^{+}$, then, $\langle\nabla f(x), y-x\rangle < \langle\nabla f(x), y-x\rangle -\delta$
+>Let $\lambda \rightarrow 0^{+}$, then, $\langle\nabla f(x), y-x\rangle \leq \langle\nabla f(x), y-x\rangle -\delta$
 >
 >Contradiction!
 
@@ -95,7 +95,7 @@ BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 >$$
 
 
->**Theorem**And sum of two L-smooth functions is a 2L-smooth function.
+>**Theorem** sum of two L-smooth functions is a 2L-smooth function.
 >
 >proof) let $f = f_1 + f_2$ and $f_1, f_2$ are L-smooth functions.
 >
@@ -103,7 +103,7 @@ BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 >\begin{align*}
 >f(y) &= f_1(y) +f_2(y) \\
 >&\leq f_1(x) + \langle\nabla f_1(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} + f_2(x) + \langle\nabla f_2(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} \\
->&= f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2}
+>&= f(x) + \langle\nabla f(x), y-x\rangle+\frac{2L}{2}\Vert y-x\Vert_{2}^{2}
 >\end{align*}
 >$$
 
