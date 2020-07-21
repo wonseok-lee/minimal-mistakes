@@ -74,7 +74,7 @@ Contradiction!
 
 When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
 
-proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + <\nabla f(x^{\star}), y-x> = f(x^{\star})$.
+proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
 
 ($\leftarrow$) will be treated below.
 
@@ -94,7 +94,7 @@ BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 
 a 1st order differentiable function (not necessarily convex) $f$ over a set (not necessarily convex) $\mathcal{D}$ is called L smooth for L > 0 if
 $$
-f(y) \leq f(x) + <\nabla f(x), y-x>+\frac{L}{2}\|y-x\|_{2}^{2}
+f(y) \leq f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\vert y-x\vert_{2}^{2}
 $$
 And sum of two L-smooth functions is a 2L-smooth function.
 
@@ -103,8 +103,8 @@ proof) let $f = f_1 + f_2$ and $f_1, f_2$ are L-smooth functions.
 $$
 \begin{align*}
 f(y) &= f_1(y) +f_2(y) \\
-&\leq f_1(x) + <\nabla f_1(x), y-x>+\frac{L}{2}\Vert y-x\Vert_{2}^{2} + f_2(x) + <\nabla f_2(x), y-x>+\frac{L}{2}\Vert y-x\Vert_{2}^{2} \\
-&= f(x) + <\nabla f(x), y-x>+\frac{L}{2}\Vert y-x\Vert_{2}^{2}
+&\leq f_1(x) + \langle\nabla f_1(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} + f_2(x) + \langle\nabla f_2(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} \\
+&= f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2}
 \end{align*}
 $$
 
