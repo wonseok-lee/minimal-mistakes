@@ -189,7 +189,7 @@ But if the gradient is too small, slowly converges. Use trade off between fast a
 >it implies that
 >
 >$$
->f(x_{T_{\epsilon}}) < f(x_0) -\frac{\eta}{2}\epsilon T_{\epsilon} = f(x_0) - (f(x_0) - min_xf(x)) = min_xf(x)
+>f(x_{T_{\epsilon}}) < f(x_0) -\frac{\eta\epsilon}{2} T_{\epsilon} = f(x_0) - (f(x_0) - min_xf(x)) = min_xf(x)
 >$$
 >
 >Contradiction!
