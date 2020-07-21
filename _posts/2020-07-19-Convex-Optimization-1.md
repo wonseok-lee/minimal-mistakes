@@ -103,8 +103,8 @@ proof) let $f = f_1 + f_2$ and $f_1, f_2$ are L-smooth functions.
 $$
 \begin{align*}
 f(y) &= f_1(y) +f_2(y) \\
-&\leq f_1(x) + <\nabla f_1(x), y-x>+\frac{L}{2}||y-x||_{2}^{2} + f_2(x) + <\nabla f_2(x), y-x>+\frac{L}{2}||y-x||_{2}^{2} \\
-&= f(x) + <\nabla f(x), y-x>+\frac{L}{2}||y-x||_{2}^{2}
+&\leq f_1(x) + <\nabla f_1(x), y-x>+\frac{L}{2}\Vert y-x\Vert_{2}^{2} + f_2(x) + <\nabla f_2(x), y-x>+\frac{L}{2}\Vert y-x\Vert_{2}^{2} \\
+&= f(x) + <\nabla f(x), y-x>+\frac{L}{2}\Vert y-x\Vert_{2}^{2}
 \end{align*}
 $$
 
@@ -135,7 +135,7 @@ $v^{T}\nabla^{2}f(x)v \geq 0$ for every vector $v$, for every $x \in \mathcal{D}
 
 So BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 
-Suppose $f(x)$ is L-smooth, by the upper quadratic bound, $ f(y) \leq f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Verty-x\Vert_{2}^{2} $
+Suppose $f(x)$ is L-smooth, by the upper quadratic bound, $ f(y) \leq f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} $
 
 Take $x = x_t, y= x_{t+1}$. Then,
 $$
@@ -143,7 +143,7 @@ f(x_{t+1}) \leq f(x_{t}) + \langle\nabla f(x_{t}), \eta\nabla f(x_{t})\rangle+\f
 $$
 For every $\eta \leq \frac{1}{L}$,  $\eta^{2}\frac{L}{2} \leq \frac{\eta}{2}$. Then,
 $$
-f(x_{t+1}) \leq f(x_{t}) -\eta\frac{L}{2}||\nabla f(x_{t})||_{2}^{2}
+f(x_{t+1}) \leq f(x_{t}) -\eta\frac{L}{2}\Vert\nabla f(x_{t})\Vert_{2}^{2}
 $$
 
 
