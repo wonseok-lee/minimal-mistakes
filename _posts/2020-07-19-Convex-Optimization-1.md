@@ -121,7 +121,7 @@ A second order differentiable function over a *convex* set $\mathcal{D}$ is L-sm
 
 1. $v^{T}\nabla^{2}f(x)v \leq L$ for every unit vector $v$, for every $x \in \mathcal{D}$
 
-2. $\|\nabla f(x) - \nabla f(y)\|_{2} \leq L\|x-y\|_{2}$
+2. $\Vert\nabla f(x) - \nabla f(y)\Vert_{2} \leq L\Vert x-y\Vert_{2}$
 
 
 
