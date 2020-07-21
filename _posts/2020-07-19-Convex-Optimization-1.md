@@ -24,11 +24,7 @@ I will write about below contents.
 Those are convex optimization algorithms, but the real-world problems in machine learning nowadays are mostly non-convex. Adaptive algorithms like Adagrad, accelerated method like the
 Nestrov's momentum and Katyusha momentum, they are also designed for convex optimization, yet they (or their variants) can be used in non-convex optimization as well.
 
-Optimization algorithm: Solve
-$$
-min_{x \in \mathcal{D}}f(x)
-$$
-as fast as possible and as good as possible.
+Optimization algorithm: Solve **$\underset{x \in \mathcal{D}}{\mathbb{min}}f(x)$** as fast as possible and as good as possible.
 
 Keywords: fast and good(tradeoff between them).
 
@@ -72,14 +68,14 @@ cThen, by convexity(definition), for every $\lambda \in (0,1)$,
 
 >**Theorem**
 >
->When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+>When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) = \underset{x}{\mathbb{min}}f(x)$
 >
 >
 >proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
 >
 >($\leftarrow$) will be treated below.
 >
->For general Lipchitz convex function, $\exists y \in \partial f(x^{\star}), y=0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+>For general Lipchitz convex function, $\exists y \in \partial f(x^{\star}), y=0 \Leftrightarrow f(x^{\star}) =\underset{x}{\mathbb{min}}f(x)$
 
 
 
@@ -157,7 +153,7 @@ Recall
 
 >**Theorem**
 >
->When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+>When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =\underset{x}{\mathbb{min}}f(x)$
 >
 >proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
 >
@@ -176,7 +172,7 @@ But if the gradient is too small, slowly converges. Use trade off between fast a
 >\Vert\nabla f(x_T)\Vert_2^{2} \leq \epsilon
 >$$
 >
->We need $T_{\epsilon} = \frac{2(f(x_0) - min_x f(x)}{\eta\epsilon}$ interations.
+>We need $T_{\epsilon} = \frac{2(f(x_0) - \underset{x}{\mathbb{min}}f(x)}{\eta\epsilon}$ interations.
 >
 >proof)
 >
@@ -189,7 +185,7 @@ But if the gradient is too small, slowly converges. Use trade off between fast a
 >it implies that
 >
 >$$
->f(x_{T_{\epsilon}}) < f(x_0) -\frac{\eta\epsilon}{2} T_{\epsilon} = f(x_0) - (f(x_0) - min_xf(x)) = min_xf(x)
+>f(x_{T_{\epsilon}}) < f(x_0) -\frac{\eta\epsilon}{2} T_{\epsilon} = f(x_0) - (f(x_0) - \underset{x}{\mathbb{min}}f(x)) = \underset{x}{\mathbb{min}}f(x)
 >$$
 >
 >Contradiction!
