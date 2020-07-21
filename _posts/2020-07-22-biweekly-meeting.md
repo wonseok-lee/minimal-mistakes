@@ -45,7 +45,8 @@ $$
 
 Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors ${ \pi_{c}(\vartheta)}_{c=1}^{C}$
 
-The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $\mathcal{D}_c = \{\vartheta_j, \mathcal{l}_c(\vartheta_j)\}_{j=1}^{J}$, 
+The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $\mathcal{D}_c = {\vartheta_j, \mathcal{l}_c(\vartheta_j)}_{j=1}^{J}$, 
+
 where $\mathcal{l}_c(\vartheta_j)=\log\pi_c(\vartheta_j)$ and each pair consists of a sample from the Markov chain with its associated log-subposterior density.
 
 
@@ -68,9 +69,11 @@ $V$ is the empirical covariance the posterior for $\vartheta$ obtained from the 
 $K(\vartheta,\vartheta')=w^2\exp(-\frac{1}{2}(\vartheta-\vartheta')^T\Lambda^{-1}(\vartheta-\vartheta'))$
 
 Given the choice of prior, $\mathcal{D}_{c}$ are observations of this Gaussian-process generated from an MCMC algorithm targeting the subposterior $\pi_c(\vartheta)$, giving up to a constant of proportionality the posterior distribution, 
+
 $$
 p(\mathcal{l_c}(\vartheta)\vert\mathcal{D}_c) \propto p(\mathcal{D}_c\vert\mathcal{l_c}(\vartheta)p(\mathcal{l_c}(\vartheta))
 $$
+
 Define $\mathcal{L_c}(\vartheta_{1:J}) := \{\mathcal{L_c}(\vartheta_{1}),\ldots,\mathcal{L_c}(\vartheta_{J})\}$ and, for *some parameter*, or *parameter vector*, $\theta:= \theta_{1:N}:=\{\theta_1,\ldots,\theta_N\}$, define $\mathcal{L_c}(\theta_{1:N}) := \{\mathcal{L_c}(\theta_{1}),\ldots,\mathcal{L_c}(\theta_{N})\}$. 
 
 the posterior distribution of $\mathcal{L_c}(\theta_{1:N}\vert\{\mathcal{L_c}(\vartheta_{1:J}) = \mathcal{l_c}(\vartheta_{1:J})\})$  is also multivariate Gaussian, 
