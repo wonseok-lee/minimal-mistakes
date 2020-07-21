@@ -145,9 +145,7 @@ $$
 w(\theta_i) = \frac{\pi(\theta_i)}{\hat{\pi}_E(\theta_i)}
 $$ 
 
-Define $${\hat{Z}}_{N}$$ and $$w_{N}(\theta)$$ provides an approximation 
-
-$$\mathbb{\hat{E}}_{N}(h)$$ to $$\mathbb{E_{\pi}}[h(\theta)]$$
+Define $${\hat{Z}}_{N}$$ and $$w_{N}(\theta)$$ provides an approximation; $$\mathbb{\hat{E}}_{N}(h)$$ to $$\mathbb{E_{\pi}}[h(\theta)]$$
 
 
 (By strong law of large numbers). 
@@ -226,7 +224,7 @@ $$
 where
 
 $$
-\frac{1}{Mq(\theta_i)}\sum_{i=1}^{N}\frac{\exp\{l_m(\theta_i)\}}{\hat{Z}(l_m)}
+ㅈ_ㅑ - \frac{1}{Mq(\theta_i)}\sum_{m=1}^{M}\frac{\exp\{l_m(\theta_i)\}}{\hat{Z}(l_m)}
 $$
 
 
