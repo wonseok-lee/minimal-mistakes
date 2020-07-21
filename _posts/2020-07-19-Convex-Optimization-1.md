@@ -32,53 +32,53 @@ as fast as possible and as good as possible.
 
 Keywords: fast and good(tradeoff between them).
 
-**Definition**: convex set
+>**Definition**: convex set
+>
+>A convex set $\mathcal{D}$ is a non-empty set if  $(1-\lambda)x + \lambda y \in \mathcal{D}$ for every $x, y \in \mathcal{D}$, for every $\lambda \in (0,1)$
 
-A convex set $\mathcal{D}$ is a non-empty set if  $(1-\lambda)x + \lambda y \in \mathcal{D}$ for every $x, y \in \mathcal{D}$, for every $\lambda \in (0,1)$
+>**Definition**: convex function
+>
+>A function $f$ over a convex set $\mathcal{D}$ is convex if $f((1-\lambda)x + \lambda y) \leq (1-\lambda)f(x) + \lambda f(y)$
 
-**Definition**: convex function
-
-A function $f$ over a convex set $\mathcal{D}$ is convex if $f((1-\lambda)x + \lambda y) \leq (1-\lambda)f(x) + \lambda f(y)$
-
-**property of a convex function**
-
-For every differentiable convex function $f$ over a convex set $\mathcal{D}$, for every point $x, y \in \mathcal{D}$, $f(y) \geq f(x) + \langle\nabla f(x), y-x\rangle$
-
-proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\nabla f, y-x\rangle-\delta$ for $\delta>0$.
-
-Then, by convexity(definition), for every $\lambda \in (0,1)$, 
-
-$$
-\begin{align*}
-f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
-&\leq (1-\lambda)f(x) + \lambda f(y) \\ 
-&\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
-&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
-\end{align*}
-$$
-
-
-It implies that
-
-$$
-\frac{f(x+\lambda(y-x))}{\lambda} < \langle\nabla f(x), y-x\rangle -\delta
-$$
-
-Let $\lambda \rightarrow 0^{+}$, then, $\langle\nabla f(x), y-x\rangle < \langle\nabla f(x), y-x\rangle -\delta$
-
-Contradiction!
+>**property of a convex function**
+>
+>For every differentiable convex function $f$ over a convex set $\mathcal{D}$, for every point $x, y \in \mathcal{D}$, $f(y) \geq f(x) + \langle\nabla f(x), y-x\rangle$
+>
+>proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\nabla f, y-x\rangle-\delta$ for $\delta>0$.
+>
+cThen, by convexity(definition), for every $\lambda \in (0,1)$, 
+>
+>$$
+>\begin{align*}
+>f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
+>&\leq (1-\lambda)f(x) + \lambda f(y) \\ 
+>&\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
+>&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
+>\end{align*}
+>$$
+>
+>
+>It implies that
+>
+>$$
+>\frac{f(x+\lambda(y-x))}{\lambda} < \langle\nabla f(x), y-x\rangle -\delta
+>$$
+>
+>Let $\lambda \rightarrow 0^{+}$, then, $\langle\nabla f(x), y-x\rangle < \langle\nabla f(x), y-x\rangle -\delta$
+>
+>Contradiction!
 
 
 
 >**Theorem**
-
+>
 >When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
-
-
+>
+>
 >proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
-
+>
 >($\leftarrow$) will be treated below.
-
+>
 >For general Lipchitz convex function, $\exists y \in \partial f(x^{\star}), y=0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
 
 
