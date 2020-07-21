@@ -133,13 +133,21 @@ $$
 
 
 
-have to still correct for inaccuracies in $\hat{\pi}_{E}$ using importance sampling while spreading the computational burden across all $C$ cores. 
+have to still correct for inaccuracies in $\hat{\pi}_{E}$ using importance sampling while spreading the computational burden across all $C$ cores.
+
 Each subposterior is evaluated at the same set of $\theta$ values, allowing them to be combined exactly. 
+
 In contrast, the original HMC runs, performed on each individual subposterior, created a different set of $\theta$ values for each subposterior so that a straightforward combination was not possible.
 
 
 
-Each value from the sample, $\theta_i$, is then associated with an unnormalised weight, $w(\theta_i) = \frac{\pi(\theta_i)}{\hat{\pi}_E(\theta_i)}$. Define $\hat{Z}_N$ and $w_N(\theta)$ provides an approximation $\mathbb{\hat{E}}_N(h)$ to $\mathbb{E}_{\pi}[h(\theta)]$(By strong law of large numbers). 
+Each value from the sample, $\theta_i$, is then associated with an unnormalised weight,
+
+$$
+w(\theta_i) = \frac{\pi(\theta_i)}{\hat{\pi}_E(\theta_i)}
+$$ 
+
+Define $\hat{Z}_N$ and $w_N(\theta)$ provides an approximation $\mathbb{\hat{E}}_N(h)$ to $\mathbb{E}_{\pi}[h(\theta)]$(By strong law of large numbers). 
 
 
 
