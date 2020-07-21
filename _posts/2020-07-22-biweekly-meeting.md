@@ -147,9 +147,9 @@ $$
 w(\theta_i) = \frac{\pi(\theta_i)}{\hat{\pi}_E(\theta_i)}
 $$ 
 
-Define $\hat{Z_{N}}$ and $w_{N}(\theta)$ provides an approximation 
+Define $\hat{Z}_{N}$ and $w_{N}(\theta)$ provides an approximation 
 
-$\mathbb{\hat{E_{N}}}(h)$ to $\mathbb{E_{\pi}}[h(\theta)]$
+$\mathbb{\hat{E}}_{N}(h)$ to $\mathbb{E_{\pi}}[h(\theta)]$
 
 
 (By strong law of large numbers). 
