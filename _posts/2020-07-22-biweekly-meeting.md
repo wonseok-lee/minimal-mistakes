@@ -225,7 +225,7 @@ $$
 where
 
 $$
-ㅈ_ㅑ - \frac{1}{Mq(\theta_i)}\sum_{m=1}^{M}\frac{\exp\{l_m(\theta_i)\}}{\hat{Z}(l_m)}
+w_i - \frac{1}{Mq(\theta_i)}\sum_{m=1}^{M}\frac{\exp\{l_m(\theta_i)\}}{\hat{Z}(l_m)}
 $$
 
 
