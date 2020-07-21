@@ -89,16 +89,15 @@ with,
 $$
 \mu_c(\theta_{1:N})\ =\ m_c(\theta_{1:N}) + K_{\ast}^{T}\tilde{K}^{-1}(\mathcal{L_c}(\vartheta_{1:J}) - m_c(\vartheta_{1:J})) \\
 \Sigma_c(\theta_{1:N})\ = \ K_{\ast,\ast}-K_{\ast}^{T}\tilde{K}^{-1}K_{\ast}
+\\
+\text{where}\ K_{\ast,\ast} =K(\theta_{1:N},\theta_{1:N}), K_{\ast} = K(\vartheta_{1:J},\theta_{1:N}), \tilde{K}=K(\vartheta_{1:J},\vartheta_{1:J})
 $$
-
-
- where $K_{\ast,\ast} =K(\theta_{1:N},\theta_{1:N}), K_{\ast} = K(\vartheta_{1:J},\theta_{1:N}), \tilde{K}=K(\vartheta_{1:J},\vartheta_{1:J})$.
 
 (다변량 정규분포를 생각하면 clear)
 
 ###### Merging the subposteriors
 
-$\pi(\theta) \propto \Pi_{c=1}^{C}\pi_c(\theta)$ and $\mathcal{L_c}(\theta) \propto \mathcal{GP}(\cdot,\cdot)$ where $c=1,\ldots,C$
+$\pi(\theta) \propto \Pi_{c=1}^{C}\pi_c(\theta)$ and $\mathcal{L_c}(\theta) \propto \mathcal{GP}(\cdot,\cdot)\ \text{where}\ c=1,\ldots,C$
 
 $$
 \mathcal{L}(\theta\vert\mathcal{D}) \propto \sum_{c=1}^{C}[\mathcal{L_c}(\theta\vert\mathcal{D_c})] = \mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))
@@ -208,7 +207,7 @@ and
 $$
 \hat{I}_h(l_m):= \frac{1}{N\hat{Z}(l_m)}\sum_{i=1}^{N}\bar{w}(\theta_i;l_m)h(\theta_i)
 \\
-\text{where} \bar{w}(\theta_i;l_m) := \frac{\exp\{l(\theta)\}}{q(\theta)}
+\text{where}\ \bar{w}(\theta_i;l_m) := \frac{\exp\{l(\theta)\}}{q(\theta)}
 $$
 
 
@@ -219,12 +218,8 @@ For the specific case of $I^{\mathbb{E}}_h$ a simplified expression for the appr
 
 $$
 \hat{I}^{\mathbb{E}}_h = \frac{1}{N}\sum_{i=1}^{N}w_ih(\theta_i)
-$$
-
-where
-
-$$
-w_i - \frac{1}{Mq(\theta_i)}\sum_{m=1}^{M}\frac{\exp\{l_m(\theta_i)\}}{\hat{Z}(l_m)}
+\\
+\text{where}\ w_i = \frac{1}{Mq(\theta_i)}\sum_{m=1}^{M}\frac{\exp\{l_m(\theta_i)\}}{\hat{Z}(l_m)}
 $$
 
 
