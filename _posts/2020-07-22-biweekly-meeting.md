@@ -89,12 +89,12 @@ $$
 with,
 
 $$
-\mu_c(\theta_{1:N})\ =\ m_c(\theta_{1:N}) + K_{*}^{T}\tilde{K}^{-1}(\mathcal{L_c}(\vartheta_{1:J}) - m_c(\vartheta_{1:J})) \\
-\Sigma_c(\theta_{1:N})\ = \ K_{*,*}-K_{*}^{T}\tilde{K}^{-1}K_{*}
+\mu_c(\theta_{1:N})\ =\ m_c(\theta_{1:N}) + K_{\ast}^{T}\tilde{K}^{-1}(\mathcal{L_c}(\vartheta_{1:J}) - m_c(\vartheta_{1:J})) \\
+\Sigma_c(\theta_{1:N})\ = \ K_{\ast,\ast}-K_{\ast}^{T}\tilde{K}^{-1}K_{\ast}
 $$
 
 
- where $K_{*,*} =K(\theta_{1:N},\theta_{1:N}), K_{*} = K(\vartheta_{1:J},\theta_{1:N}), \tilde{K}=K(\vartheta_{1:J},\vartheta_{1:J})$.
+ where $K_{\ast,\ast} =K(\theta_{1:N},\theta_{1:N}), K_{\ast} = K(\vartheta_{1:J},\theta_{1:N}), \tilde{K}=K(\vartheta_{1:J},\vartheta_{1:J})$.
 
 (다변량 정규분포를 생각하면 clear)
 
@@ -124,7 +124,7 @@ Use HMC to obtain an approximate sample, $\{\theta_i\}_{i=1}^{N}$ from $\hat{\pi
 $$
 \begin{align*}
 \nabla\log\hat{\pi}_E(\theta) &= \sum_{c=1}^{C}\frac{\partial}{\partial\theta}\mu_c(\theta)+\frac{1}{2}\sum_{c=1}^{C}\frac{\partial}{\partial\theta}\Sigma_c(\theta) \\
-=& \sum_{c=1}^{C}\frac{\partial}{\partial\theta}m(\theta)+\frac{\partial K_{*}^{T}}{\partial\theta}\tilde{K}^{-1}(\mathcal{l_c}(\vartheta_{1:J}) - m(\vartheta_{1:J}))+ \frac{1}{2}\frac{\partial}{\partial\theta}K_{*,*} - \frac{\partial}{\partial\theta}K_{*}^T\tilde{K}^{-1}
+=& \sum_{c=1}^{C}\frac{\partial}{\partial\theta}m(\theta)+\frac{\partial K_{\ast}^{T}}{\partial\theta}\tilde{K}^{-1}(\mathcal{l_c}(\vartheta_{1:J}) - m(\vartheta_{1:J}))+ \frac{1}{2}\frac{\partial}{\partial\theta}K_{\ast,\ast} - \frac{\partial}{\partial\theta}K_{\ast}^T\tilde{K}^{-1}
 \end{align*}
 $$
 
@@ -211,7 +211,7 @@ where $\bar{w}(\theta_i;l_m) := \frac{\exp\{l(\theta)\}}{q(\theta)}$ .
 
 
 
-The set $\{\hat{I}_h(l_m)\}^M_{m=1}$ is then used in place of $\{I_h(l_m)\}^M_{m=1}$for posterior inference on $I_h$. 
+The set $\{\hat{I_{h}}(l_{m})\}_{m=1}^M$ is then used in place of $\{I_h(l_m)\}^M_{m=1}$for posterior inference on $I_h$. 
 
 For the specific case of $I^{\mathbb{E}}_h$ a simplified expression for the approximation may be derived: 
 
