@@ -91,23 +91,25 @@ $x_0$ : starting point, $\eta$: step size
 
 BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 
-**Definition**: smoothness
+>**Definition**: smoothness
+>
+>a 1st order differentiable function (not necessarily convex) $f$ over a set (not necessarily convex) $\mathcal{D}$ is called L smooth for L > 0 if
+>$$
+>f(y) \leq f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2}
+>$$
 
-a 1st order differentiable function (not necessarily convex) $f$ over a set (not necessarily convex) $\mathcal{D}$ is called L smooth for L > 0 if
-$$
-f(y) \leq f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\vert y-x\vert_{2}^{2}
-$$
-And sum of two L-smooth functions is a 2L-smooth function.
 
-proof) let $f = f_1 + f_2$ and $f_1, f_2$ are L-smooth functions.
-
-$$
-\begin{align*}
-f(y) &= f_1(y) +f_2(y) \\
-&\leq f_1(x) + \langle\nabla f_1(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} + f_2(x) + \langle\nabla f_2(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} \\
-&= f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2}
-\end{align*}
-$$
+>**Theorem**And sum of two L-smooth functions is a 2L-smooth function.
+>
+>proof) let $f = f_1 + f_2$ and $f_1, f_2$ are L-smooth functions.
+>
+>$$
+>\begin{align*}
+>f(y) &= f_1(y) +f_2(y) \\
+>&\leq f_1(x) + \langle\nabla f_1(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} + f_2(x) + \langle\nabla f_2(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} \\
+>&= f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2}
+>\end{align*}
+>$$
 
 
 Recall
@@ -118,19 +120,19 @@ $\Rightarrow$ Gradient descent works using Upper linear bound, Mirror descent wo
 
 
 
-**Definition**(alternative): Upper quadratic bound
+>**Definition**(alternative): Upper quadratic bound
+>
+>A second order differentiable function over a *convex* set $\mathcal{D}$ is L-smooth **if and only if**:
+>
+>1. $v^{T}\nabla^{2}f(x)v \leq L$ for every unit vector $v$, for every $x \in \mathcal{D}$
+>
+>2. $\Vert\nabla f(x) - \nabla f(y)\Vert_{2} \leq L\Vert x-y\Vert_{2}$
 
-A second order differentiable function over a *convex* set $\mathcal{D}$ is L-smooth **if and only if**:
-
-1. $v^{T}\nabla^{2}f(x)v \leq L$ for every unit vector $v$, for every $x \in \mathcal{D}$
-
-2. $\Vert\nabla f(x) - \nabla f(y)\Vert_{2} \leq L\Vert x-y\Vert_{2}$
 
 
-
-Additional: a second order differentiable convex function over a *convex* set $\mathcal{D}$ is L-smooth **if and only if**:
-
-$v^{T}\nabla^{2}f(x)v \geq 0$ for every vector $v$, for every $x \in \mathcal{D}$
+>Additional: a second order differentiable convex function over a *convex* set $\mathcal{D}$ is L-smooth **if and only if**:
+>
+>$v^{T}\nabla^{2}f(x)v \geq 0$ for every vector $v$, for every $x \in \mathcal{D}$
 
 
 
@@ -139,10 +141,13 @@ So BUT WHY DOES IT WORK?, HOW TO CHOOSE $\eta$?
 Suppose $f(x)$ is L-smooth, by the upper quadratic bound, $ f(y) \leq f(x) + \langle\nabla f(x), y-x\rangle+\frac{L}{2}\Vert y-x\Vert_{2}^{2} $
 
 Take $x = x_t, y= x_{t+1}$. Then,
+
 $$
 f(x_{t+1}) \leq f(x_{t}) + \langle\nabla f(x_{t}), \eta\nabla f(x_{t})\rangle+\frac{L}{2}\Vert\eta\nabla f(x_{t})\Vert_{2}^{2}
 $$
+
 For every $\eta \leq \frac{1}{L}$,  $\eta^{2}\frac{L}{2} \leq \frac{\eta}{2}$. Then,
+
 $$
 f(x_{t+1}) \leq f(x_{t}) -\eta\frac{L}{2}\Vert\nabla f(x_{t})\Vert_{2}^{2}
 $$
@@ -150,41 +155,44 @@ $$
 
 Recall
 
-**Theorem**
-
-When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
-
-proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
-
-($\leftarrow$)  Put $x_{t+1}=x_{t}=x^{\star}$. Then $f(x^{\star}) \leq f(x^{\star}) -\eta\frac{L}{2}\Vert\nabla f(x^{\star})\Vert_{2}^{2}$. 
-
-It implies $\Vert\nabla f(x^{\star})\Vert_{2}^{2} \leq 0$. So $\nabla f(x^{\star}) = 0$
+>**Theorem**
+>
+>When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+>
+>proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
+>
+>($\leftarrow$)  Put $x_{t+1}=x_{t}=x^{\star}$. Then $f(x^{\star}) \leq f(x^{\star}) -\eta\frac{L}{2}\Vert\nabla f(x^{\star})\Vert_{2}^{2}$. 
+>
+>It implies 
+>$\Vert\nabla f(x^{\star})\Vert_{2}^{2} \leq 0$. So $\nabla f(x^{\star}) = 0$
 
 
 
 But if the gradient is too small, slowly converges. Use trade off between fast and accurate.
 
-Given $\epsilon >0$, how many iterations $T$ do we need to find an $x_T$ s.t
-$$
-\Vert\nabla f(x_T)\Vert_2^{2} \leq \epsilon
-$$
-We need $T_{\epsilon} = \frac{2(f(x_0) - min_x f(x)}{\eta\epsilon}$ interations.
-
-proof)
-
-Suppose for every $t \leq T_{\epsilon}, \Vert\nabla f(x_{t})\Vert_2^{2} > \epsilon$, then
-
-$$
-f(x_{t+1}) < f(x_t) - \frac{\eta}{2}\epsilon
-$$
-
-it implies that
-
-$$
-f(x_{T_{\epsilon}}) < f(x_0) -\frac{\eta}{2}\epsilon T_{\epsilon} = f(x_0) - (f(x_0) - min_xf(x)) = min_xf(x)
-$$
-
-Contradiction!
+>Given $\epsilon >0$, how many iterations $T$ do we need to find an $x_T$ s.t
+>
+>$$
+>\Vert\nabla f(x_T)\Vert_2^{2} \leq \epsilon
+>$$
+>
+>We need $T_{\epsilon} = \frac{2(f(x_0) - min_x f(x)}{\eta\epsilon}$ interations.
+>
+>proof)
+>
+>Suppose for every $t \leq T_{\epsilon}, \Vert\nabla f(x_{t})\Vert_2^{2} > \epsilon$, then
+>
+>$$
+>f(x_{t+1}) < f(x_t) - \frac{\eta}{2}\epsilon
+>$$
+>
+>it implies that
+>
+>$$
+>f(x_{T_{\epsilon}}) < f(x_0) -\frac{\eta}{2}\epsilon T_{\epsilon} = f(x_0) - (f(x_0) - min_xf(x)) = min_xf(x)
+>$$
+>
+>Contradiction!
 
 
 
