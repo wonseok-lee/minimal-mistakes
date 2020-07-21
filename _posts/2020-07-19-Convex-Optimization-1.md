@@ -70,15 +70,16 @@ Contradiction!
 
 
 
-**Theorem**
+>**Theorem**
 
-When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+>When there is no local minima, for a 1st order differentiable convex function $f$, $\nabla f(x^{\star}) = 0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
 
-proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
 
-($\leftarrow$) will be treated below.
+>proof) $(\rightarrow)$ for every $y$, and let $x=x^{\star}$, then $f(y) \geq f(x^{\star}) + \langle\nabla f(x^{\star}), y-x\rangle = f(x^{\star})$.
 
-For general Lipchitz convex function, $\exists y \in \partial f(x^{\star}), y=0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
+>($\leftarrow$) will be treated below.
+
+>For general Lipchitz convex function, $\exists y \in \partial f(x^{\star}), y=0 \Leftrightarrow f(x^{\star}) =min_{x}f(x)$
 
 
 
