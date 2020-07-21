@@ -42,9 +42,9 @@ A function $f$ over a convex set $\mathcal{D}$ is convex if $f((1-\lambda)x + \l
 
 **property of a convex function**
 
-For every differentiable convex function $f$ over a convex set $\mathcal{D}$, for every point $x, y \in \mathcal{D}$, $f(y) \geq f(x) + <\nabla f(x), y-x>$
+For every differentiable convex function $f$ over a convex set $\mathcal{D}$, for every point $x, y \in \mathcal{D}$, $f(y) \geq f(x) + \langle\nabla f(x), y-x\rangle$
 
-proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + <\nabla f, y-x>-\delta$ for $\delta>0$.
+proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \lange\nabla f, y-x\rangle-\delta$ for $\delta>0$.
 
 Then, by convexity(definition), for every $\lambda \in (0,1)$, 
 
@@ -52,15 +52,15 @@ $$
 \begin{align*}
 f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
 &\leq (1-\lambda)f(x) + \lambda f(y) \\ 
-&\leq (1-\lambda) f(x) + \lambda f(x)+\lambda <\nabla f, y-x>-\lambda \delta \\
-&= f(x) + \lambda <\nabla f, y-x>-\lambda \delta \\
+&\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
+&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
 \end{align*}
 $$
 
 
 It implies that
 $$
-\frac{f(x+\lambda(y-x))}{\lambda} < <\nabla f(x), y-x> -\delta
+\frac{f(x+\lambda(y-x))}{\lambda} < \langle\nabla f(x), y-x\rangle -\delta
 $$
 Let $\lambda \rightarrow 0^{+}$, then, $<\nabla f(x), y-x> < <\nabla f(x), y-x> -\delta$
 
