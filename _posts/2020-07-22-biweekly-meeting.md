@@ -7,7 +7,7 @@ use_math: true
 
 ## Weekly Meeting 20200722
 
-
+'}'
 
 Christopher Nemeth and Chris Sherlock. (2018). *Merging MCMC Subposteriors through Gaussian-Process Approximations.* Bayesian Analysis
 
@@ -19,7 +19,7 @@ Consider a data set $\mathcal{Y} = \{y_1,\ldots, y_n\}$.
 
 Data are conditionally independent with likelihood $\Pi_{i =1}^{i=n}p(y_i\vert\vartheta)$, where $\vartheta \in \mathcal{\Theta} \subseteq \mathbb{R}^d$ is model parameter.
 
-the data set $\mathcal{Y}$ can be partitioned into C batches $\{\mathcal{Y_1}, \ldots, \mathcal{Y_C}\}$ where we define a subposterior operating on a subset of the data $\mathcal{Y_c}$ as $\pi_c(\vartheta)=p(\vartheta\vert\mathcal{Y_c}) \propto p(\mathcal{Y_c}\vert\vartheta)p(\vartheta)^{1/C}$
+the data set $\mathcal{Y}$ can be partitioned into C batches $\{\mathcal{Y_1}, \ldots, \mathcal{Y_C}}$ where we define a subposterior operating on a subset of the data $\mathcal{Y_c}$ as $\pi_c(\vartheta)=p(\vartheta\vert\mathcal{Y_c}) \propto p(\mathcal{Y_c}\vert\vartheta)p(\vartheta)^{1/C}$
 
 #### Run MCMC on each subposterior
 
