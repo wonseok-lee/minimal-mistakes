@@ -33,6 +33,7 @@ d\vartheta=M^{-1}\varphi d\tau,\\
 d\varphi = \nabla_{\vartheta} \log\pi(\vartheta)d\tau
 $$
 The differential equations are intractable and must be solved numerically.
+
 $$
 \varphi_{\tau + \frac{\epsilon}{2}}= \varphi_{\tau} + \frac{\epsilon}{2}\nabla_{\vartheta_{\tau}} \log\pi(\vartheta_{\tau}), \\
 \vartheta_{\tau +\varepsilon} = \vartheta_{\tau} + \epsilon M^{-1}\varphi_{\tau + \frac{\epsilon}{2}}, \\
@@ -42,7 +43,9 @@ $$
 
 #### Fit GP to each subposterior
 
-Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors $\{\pi_{c}(\vartheta)\}_{c=1}^{C}$. The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $\mathcal{D}_c = \{\vartheta_j, \mathcal{l}_c(\vartheta_j)\}_{j=1}^{J}$, where $\mathcal{l}_c(\vartheta_j)=\log\pi_c(\vartheta_j)$ and each pair consists of a sample from the Markov chain with its associated log-subposterior density.
+Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors $\{\pi_{c}(\vartheta)\}_{c=1}^{C}$. 
+The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $\mathcal{D}_c = \{\vartheta_j, \mathcal{l}_c(\vartheta_j)\}_{j=1}^{J}$, 
+where $\mathcal{l}_c(\vartheta_j)=\log\pi_c(\vartheta_j)$ and each pair consists of a sample from the Markov chain with its associated log-subposterior density.
 
 
 
@@ -52,16 +55,18 @@ $$
 $$
 where mean function $m: \vartheta \rightarrow \mathbb{R}$ and covariance $K: \vartheta\times\vartheta \rightarrow \mathbb{R}$
 
-Ensure that $\int \exp\{\mathcal{L_c(\vartheta)}\}d\vartheta < \infin$ (also, $\mathcal{L_c}(\theta) \rightarrow -\infin$ as $\theta \rightarrow \pm\infin$)almost surely setting the mean function.
+Ensure that $\int \exp\{\mathcal{L_c(\vartheta)}\}d\vartheta < \infty$ (also, $\mathcal{L_c}(\theta) \rightarrow -\infty$ as $\theta \rightarrow \pm\infty$)almost surely setting the mean function.
+
 $$
 m(\vartheta) =\beta_0+\vartheta_1^T\beta_1+diag(\vartheta^TV^{-1}\vartheta)\beta_2, \\
 \beta_2 < 0,\ i =0,1,2
 $$
+
 $V$ is the empirical covariance the posterior for $\vartheta$ obtained from the MCMC sample and $\beta_i$ are unknown constants.
 
 $K(\vartheta,\vartheta')=w^2\exp(-\frac{1}{2}(\vartheta-\vartheta')^T\Lambda^{-1}(\vartheta-\vartheta'))$
 
-Given the choice of prior, $\mathcal{D}_c$ are observations of this Gaussian-process generated from an MCMC algorithm targeting the subposterior $\pi_c(\vartheta)$, giving up to a constant of proportionality the posterior distribution, 
+Given the choice of prior, $\mathcal{D}_{c}$ are observations of this Gaussian-process generated from an MCMC algorithm targeting the subposterior $\pi_c(\vartheta)$, giving up to a constant of proportionality the posterior distribution, 
 $$
 p(\mathcal{l_c}(\vartheta)\vert\mathcal{D}_c) \propto p(\mathcal{D}_c\vert\mathcal{l_c}(\vartheta)p(\mathcal{l_c}(\vartheta))
 $$
