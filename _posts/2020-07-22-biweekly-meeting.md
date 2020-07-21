@@ -76,24 +76,28 @@ $$
 
 Define $\mathcal{L_c}(\vartheta_{1:J}) := \{\mathcal{L_c}(\vartheta_{1}),\ldots,\mathcal{L_c}(\vartheta_{J})\}$ and, for *some parameter*, or *parameter vector*, $\theta:= \theta_{1:N}:=\{\theta_1,\ldots,\theta_N\}$, define $\mathcal{L_c}(\theta_{1:N}) := \{\mathcal{L_c}(\theta_{1}),\ldots,\mathcal{L_c}(\theta_{N})\}$. 
 
-the posterior distribution of $\mathcal{L_c}(\theta_{1:N}\vert\{\mathcal{L_c}(\vartheta_{1:J}) = \mathcal{l_c}(\vartheta_{1:J})\})$  is also multivariate Gaussian, 
+the posterior distribution of $\mathcal{L_c}(\theta_{1:N}\vert\{\mathcal{L_c}(\vartheta_{1:J}) = \mathcal{l_c}(\vartheta_{1:J})\})$  is also multivariate Gaussian,
+
 $$
 \mathcal{L_c}(\theta_{1:N}\vert\mathcal{D_c}) \sim \mathcal{N}(\mu_c(\theta_{1:N}), \Sigma_c(\theta_{1:N}))
 $$
+
 with,
+
 $$
 \mu_c(\theta_{1:N})\ =\ m_c(\theta_{1:N}) + K_{*}^{T}\tilde{K}^{-1}(\mathcal{L_c}(\vartheta_{1:J}) - m_c(\vartheta_{1:J})) \\
 \Sigma_c(\theta_{1:N})\ = \ K_{*,*}-K_{*}^{T}\tilde{K}^{-1}K_{*}
 $$
 
 
- where $K_{*,*} =K(\theta_{1:N},\theta_{1:N}), \ K_{*} = K(\vartheta_{1:J},\theta_{1:N}), \ \tilde{K}=K(\vartheta_{1:J},\vartheta_{1:J})$.
+ where $K_{*,*} =K(\theta_{1:N},\theta_{1:N}), K_{*} = K(\vartheta_{1:J},\theta_{1:N}), \tilde{K}=K(\vartheta_{1:J},\vartheta_{1:J})$.
 
 (다변량 정규분포를 생각하면 clear)
 
 ###### Merging the subposteriors
 
 $\pi(\theta) \propto \Pi_{c=1}^{C}\pi_c(\theta)$ and $\mathcal{L_c}(\theta) \propto \mathcal{GP}(\cdot,\cdot)$ where $c=1,\ldots,C$
+
 $$
 \mathcal{L}(\theta\vert\mathcal{D}) \propto \sum_{c=1}^{C}[\mathcal{L_c}(\theta\vert\mathcal{D_c})] = \mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))
 $$
@@ -113,7 +117,7 @@ Use HMC to obtain an approximate sample, $\{\theta_i\}_{i=1}^{N}$ from $\hat{\pi
 $$
 \begin{align*}
 \nabla\log\hat{\pi}_E(\theta) &= \sum_{c=1}^{C}\frac{\partial}{\partial\theta}\mu_c(\theta)+\frac{1}{2}\sum_{c=1}^{C}\frac{\partial}{\partial\theta}\Sigma_c(\theta) \\
-=& \sum_{c=1}^{C}\frac{\partial}{\partial\theta}m(\theta)+\frac{\partial K_{*}^{T}}{\partial\theta}\tilde{K}^{-1}(\mathcal{l_c}(\vartheta_{1:J}) - m(\vartheta_{1:J}))\\ &+ \frac{1}{2}\frac{\partial}{\partial\theta}K_{*,*} - \frac{\partial}{\partial\theta}K_{*}^T\tilde{K}^{-1}
+=& \sum_{c=1}^{C}\frac{\partial}{\partial\theta}m(\theta)+\frac{\partial K_{*}^{T}}{\partial\theta}\tilde{K}^{-1}(\mathcal{l_c}(\vartheta_{1:J}) - m(\vartheta_{1:J}))+ \frac{1}{2}\frac{\partial}{\partial\theta}K_{*,*} - \frac{\partial}{\partial\theta}K_{*}^T\tilde{K}^{-1}
 \end{align*}
 $$
 
@@ -122,7 +126,9 @@ $$
 
 
 
-have to still correct for inaccuracies in $\hat{\pi}_E$ using importance sampling while spreading the computational burden across all $C$ cores. Each subposterior is evaluated at the same set of $\theta$ values, allowing them to be combined exactly. In contrast, the original HMC runs, performed on each individual subposterior, created a different set of $\theta$ values for each subposterior so that a straightforward combination was not possible.
+have to still correct for inaccuracies in $\hat{\pi}_{E}$ using importance sampling while spreading the computational burden across all $C$ cores. 
+Each subposterior is evaluated at the same set of $\theta$ values, allowing them to be combined exactly. 
+In contrast, the original HMC runs, performed on each individual subposterior, created a different set of $\theta$ values for each subposterior so that a straightforward combination was not possible.
 
 
 
