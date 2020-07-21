@@ -177,6 +177,7 @@ where $l$ is a realization of $\mathcal{L}$ from the distribution, $\mathcal{GP}
 Consider the hypothetical scenario where it is possible to store $l$ completely and evaluate $I_h(l)$. 
 
 A set of $M$ realisations of $\mathcal{L}$, $$\{l_m\}^M_{m=1}$$ would lead to $M$ associated estimates of $I_h$,
+
 $$\{I_h(l_m))\}^M_{m=1}$$, which would approximate the posterior distribution of $I_h$ under $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$. 
 
 
