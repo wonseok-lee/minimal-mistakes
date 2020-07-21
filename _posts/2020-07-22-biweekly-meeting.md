@@ -7,7 +7,7 @@ use_math: true
 
 ## Weekly Meeting 20200722
 
-$}$
+$\{\}$
 
 Christopher Nemeth and Chris Sherlock. (2018). *Merging MCMC Subposteriors through Gaussian-Process Approximations.* Bayesian Analysis
 
