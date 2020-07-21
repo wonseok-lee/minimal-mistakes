@@ -13,7 +13,7 @@ Christopher Nemeth and Chris Sherlock. (2018). *Merging MCMC Subposteriors throu
 
 #### Basic Idea
 
-Consider a data set $\mathcal{Y} = \{y_1,\ldots, y_n\}$.
+Consider a data set $\mathcal{Y} = \\{y_1,\ldots, y_n\\}$.
 
 Data are conditionally independent with likelihood $\Pi_{i =1}^{i=n}p(y_i\vert\vartheta)$, where $\vartheta \in \mathcal{\Theta} \subseteq \mathbb{R}^d$ is model parameter.
 
