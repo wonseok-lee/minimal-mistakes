@@ -149,9 +149,8 @@ $$
 
 Define $\hat{Z_{N}}$ and $w_{N}(\theta)$ provides an approximation 
 
-$$
-\mathbb{\hat{E}}_N(h)$ to $\mathbb{E}_{\pi}[h(\theta)]
-$$
+$\mathbb{\hat{E_{N}}}(h)$ to $\mathbb{E_{\pi}}[h(\theta)]$
+
 
 (By strong law of large numbers). 
 
@@ -217,7 +216,7 @@ where $\bar{w}(\theta_i;l_m) := \frac{\exp\{l(\theta)\}}{q(\theta)}$ .
 
 
 
-The set $\{\hat{I_{h}}(l_{m})\}_{m=1}^M$ is then used in place of $\{I_h(l_m)\}^M_{m=1}$for posterior inference on $I_h$. 
+The set $\{ \hat{I_{h}}(l_{m}) \}^M_{m=1}$ is then used in place of $\{ I_{h}(l_{m}) \}^M_{m=1}$for posterior inference on $I_h$. 
 
 For the specific case of $I^{\mathbb{E}}_h$ a simplified expression for the approximation may be derived: 
 
