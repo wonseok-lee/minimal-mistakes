@@ -27,11 +27,13 @@ subposterior MCMC -> HMC
 
 $\pi(\vartheta, \varphi)\propto \exp(\log\pi(\vartheta)-\frac{1}{2}\varphi^TM^{-1}\varphi)$
 
-sample from the target distribution by simulating $\vartheta$ and $\varphi$ through fictitious time $\tau$ using Hamilton’s equations
+sample from the target distribution by simulating $\vartheta$ and $\varphi$ through fictitious time $\tau$ using Hamilton’s equations.
+
 $$
 d\vartheta=M^{-1}\varphi d\tau,\\ 
 d\varphi = \nabla_{\vartheta} \log\pi(\vartheta)d\tau
 $$
+
 The differential equations are intractable and must be solved numerically.
 
 $$
@@ -43,9 +45,9 @@ $$
 
 #### Fit GP to each subposterior
 
-Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors ${ \pi_{c}(\vartheta)}_{c=1}^{C}$
+Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors $\{\pi_{c}(\vartheta)\}_{c=1}^{C}$
 
-The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $\mathcal{D}_c = {\vartheta_j, \mathcal{l}_c(\vartheta_j)}_{j=1}^{J}$, 
+The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $\mathcal{D}_c = \{\vartheta_j, \mathcal{l}_c(\vartheta_j)\}$, 
 
 where $\mathcal{l}_c(\vartheta_j)=\log\pi_c(\vartheta_j)$ and each pair consists of a sample from the Markov chain with its associated log-subposterior density.
 
