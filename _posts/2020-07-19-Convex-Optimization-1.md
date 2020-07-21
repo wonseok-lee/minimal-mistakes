@@ -141,11 +141,11 @@ Take $x = x_t, y= x_{t+1}$. Then,
 $$
 \begin{align*}
 f(x_{t+1}) &\leq f(x_{t}) - \langle\nabla f(x_{t}), \eta\nabla f(x_{t})\rangle+\frac{L}{2}\Vert\eta\nabla f(x_{t})\Vert_{2}^{2} \\
-&= f(x_{t}) - \eta^2\Vert\nablaf(x_t)\Vert_{2}^(2) + \frac{L\eta^2}{2}\Vert\nabla f(x_{t})\Vert_{2}^{2}
+&= f(x_{t}) - \eta^2\Vert\nabla f(x_t)\Vert_{2}^(2) + \frac{L\eta^2}{2}\Vert\nabla f(x_{t})\Vert_{2}^{2}
 \end{align*}
 $$
 
-For every $\eta \leq \frac{1}{L}$,\  $\eta^{2}\frac{L}{2} \leq \frac{\eta}{2}$. Then,
+For every $\eta leq \frac{1}{L}$,\  $\eta^{2}\frac{L}{2} \leq \frac{\eta}{2}$. Then,
 
 $$
 f(x_{t+1}) \leq f(x_{t}) -\eta\frac{L}{2}\Vert\nabla f(x_{t})\Vert_{2}^{2}
