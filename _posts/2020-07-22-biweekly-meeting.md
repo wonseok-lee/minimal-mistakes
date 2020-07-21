@@ -54,9 +54,11 @@ where $\mathcal{l}_c(\vartheta_j)=\log\pi_c(\vartheta_j)$ and each pair consists
 
 
 Gaussian-process prior distribution
+
 $$
 \mathcal{L}_c(\vartheta) \sim \mathcal{GP}(m(\vartheta),K(\vartheta,\vartheta'))
 $$
+
 where mean function $m: \vartheta \rightarrow \mathbb{R}$ and covariance $K: \vartheta\times\vartheta \rightarrow \mathbb{R}$
 
 Ensure that $\int \exp\{\mathcal{L_c(\vartheta)}\}d\vartheta < \infty$ (also, $\mathcal{L_c}(\theta) \rightarrow -\infty$ as $\theta \rightarrow \pm\infty$)almost surely setting the mean function.
@@ -112,10 +114,13 @@ $$
 ###### 1. The expected posterior density
 
 approximate the full posterior density by its expectation under the Gaussian-process approximation(and the property of log-normal distribution):
+
 $$
 \hat{\pi}_E(\theta) \propto \mathbb{E}[\exp(\mathcal{L}(\theta)\vert\mathcal{D}] = \exp\{\sum_{c=1}^{C}\mu_c(\theta)+\frac{1}{2}\sum_{c=1}^{C}\Sigma_c(\theta) \}
 $$
+
 Use HMC to obtain an approximate sample, $\{\theta_i\}_{i=1}^{N}$ from $\hat{\pi}_E(\theta)$.
+
 $$
 \begin{align*}
 \nabla\log\hat{\pi}_E(\theta) &= \sum_{c=1}^{C}\frac{\partial}{\partial\theta}\mu_c(\theta)+\frac{1}{2}\sum_{c=1}^{C}\frac{\partial}{\partial\theta}\Sigma_c(\theta) \\
@@ -150,17 +155,24 @@ Since the unknown normalising constants for both $\pi$ and $\hat{\pi}_E$ appear 
 
 
 
-we are interested in $I_h:=\mathbb{E}_{\pi}[h(\theta)]\ =\ \frac{1}{Z}\int\pi(\theta)h(\theta)d\theta $. Consider approximating this with
+we are interested in $I_h:=\mathbb{E}_{\pi}[h(\theta)] = \frac{1}{Z}\int\pi(\theta)h(\theta)d\theta $. 
+
+Consider approximating this with
+
 $$
 I_h(l):= \frac{1}{Z(l)}\int\exp\{l(\theta)\}h(\theta)d\theta
 $$
+
 where $l$ is a realization of $\mathcal{L}$ from the distribution, $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$ and $Z(l):= \int\exp\{l(\theta)\}d\theta$
 
-Consider the hypothetical scenario where it is possible to store $l$ completely and evaluate $I_h(l)$. A set of $M$ realisations of $\mathcal{L}$, $\{l_m\}^M_{m=1}$ would lead to $M$ associated estimates of $I_h$, $\{I_h(l_m))\}^M_{m=1}$, which would approximate the posterior distribution of $I_h$ under $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$. 
+Consider the hypothetical scenario where it is possible to store $l$ completely and evaluate $I_h(l)$. 
+
+A set of $M$ realisations of $\mathcal{L}$, $\{l_m\}^M_{m=1}$ would lead to $M$ associated estimates of $I_h$, $\{I_h(l_m))\}^M_{m=1}$, which would approximate the posterior distribution of $I_h$ under $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$. 
 
 
 
 The mean of these would then target, the posterior expectation, 
+
 $$
 I^{\mathbb{E}}_h\ := \ \mathbb{E} [\frac{1}{Z(\mathcal{L})}\int h(\theta)\exp(\mathcal{L(\theta)})d\theta]
 $$
@@ -174,11 +186,14 @@ Instead, use importance sampling. Consider a proposal distribution $q(\theta)$ t
 
 
 
-For each $m \in \{1,\ldots,M\}$ we then sample the finite-dimensional object $(m(\theta_1),\ldots,m(\theta_N ))$ from the joint distribution of the $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$. For each such realisation we then construct an approximation to the normalisation constant and to $I_h(l)$:
+For each $m \in \{1,\ldots,M\}$ we then sample the finite-dimensional object $(m(\theta_1),\ldots,m(\theta_N ))$ from the joint distribution of the $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$. For each such realisation we then construct an approximation to the normalisation constant and to $I_h(l)$:
+
 $$
 \hat{Z}(l_m) := \frac{1}{N}\sum_{i=1}^{N}\bar{w}(\theta_i;l_m)
 $$
-and 
+
+and
+
 $$
 \hat{I}_h(l_m):= \frac{1}{N\hat{Z}(l_m)}\sum_{i=1}^{N}\bar{w}(\theta_i;l_m)h(\theta_i)
 $$
@@ -188,11 +203,16 @@ where $\bar{w}(\theta_i;l_m) := \frac{\exp\{l(\theta)\}}{q(\theta)}$ .
 
 
 
-The set $\{\hat{I}_h(l_m)\}^M_{m=1}$ is then used in place of $\{I_h(l_m)\}^M_{m=1}$for posterior inference on $I_h$. For the specific case of $I^{\mathbb{E}}_h$ a simplified expression for the approximation may be derived: 
+The set $\{\hat{I}_h(l_m)\}^M_{m=1}$ is then used in place of $\{I_h(l_m)\}^M_{m=1}$for posterior inference on $I_h$. 
+
+For the specific case of $I^{\mathbb{E}}_h$ a simplified expression for the approximation may be derived: 
+
 $$
 \hat{I}^{\mathbb{E}}_h = \frac{1}{N}\sum_{i=1}^{N}w_ih(\theta_i)
 $$
+
 where
+
 $$
 \frac{1}{Mq(\theta_i)}\sum_{i=1}^{N}\frac{\exp\{l_m(\theta_i)\}}{\hat{Z}(l_m)}
 $$
@@ -203,8 +223,6 @@ $$
 
 
 The proposal density $q(\theta_i)$ should be a good approximation to the posterior density. Let the proposal density $q(\theta_i)$ be a multivariate Student-t distribution on 5 degrees of freedom with mean and variance matching those of the Gaussian posterior that would arise given the mean and variance of each subposterior and if each sub-posterior were Gaussian.
-
-![스크린샷 2020-07-21 오후 3.28.04](/Users/bayeslab/Desktop/스크린샷 2020-07-21 오후 3.28.04.png)
 
 
 
