@@ -45,7 +45,7 @@ $$
 
 Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors $$\{\pi_{c}(\vartheta)\}_{c=1}^{C}$$
 
-The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $$\mathcal{D}_c = \{\vartheta_j, \mathcal{l}_c(\vartheta_j)\}$$, 
+The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $$\mathcal{D}_c = \{\vartheta_j, \mathcal{l}_c(\vartheta_j)\}_{c=1}^{C}$$, 
 
 where $\mathcal{l}_c(\vartheta_j)=\log\pi_c(\vartheta_j)$ and each pair consists of a sample from the Markov chain with its associated log-subposterior density.
 
@@ -76,7 +76,7 @@ $$
 p(\mathcal{l_c}(\vartheta)\vert\mathcal{D}_c) \propto p(\mathcal{D}_c\vert\mathcal{l_c}(\vartheta)p(\mathcal{l_c}(\vartheta))
 $$
 
-Define $\mathcal{L_c}(\vartheta_{1:J}) := \{\mathcal{L_c}(\vartheta_{1}),\ldots,\mathcal{L_c}(\vartheta_{J})\}$ and, for *some parameter*, or *parameter vector*, $\theta:= \theta_{1:N}:=\{\theta_1,\ldots,\theta_N\}$, define $\mathcal{L_c}(\theta_{1:N}) := \{\mathcal{L_c}(\theta_{1}),\ldots,\mathcal{L_c}(\theta_{N})\}$. 
+Define $$\mathcal{L_c}(\vartheta_{1:J}) := \{\mathcal{L_c}(\vartheta_{1}),\ldots,\mathcal{L_c}(\vartheta_{J})\}$$ and, for *some parameter*, or *parameter vector*, $$\theta:= \theta_{1:N}:=\{\theta_1,\ldots,\theta_N\}$$, define $$\mathcal{L_c}(\theta_{1:N}) := \{\mathcal{L_c}(\theta_{1}),\ldots,\mathcal{L_c}(\theta_{N})\}$$. 
 
 the posterior distribution of $\mathcal{L_c}(\theta_{1:N}\vert\{\mathcal{L_c}(\vartheta_{1:J}) = \mathcal{l_c}(\vartheta_{1:J})\})$  is also multivariate Gaussian,
 
@@ -145,9 +145,9 @@ $$
 w(\theta_i) = \frac{\pi(\theta_i)}{\hat{\pi}_E(\theta_i)}
 $$ 
 
-Define ${\hat{Z}}_{N}$ and $w_{N}(\theta)$ provides an approximation 
+Define $${\hat{Z}}_{N}$$ and $$w_{N}(\theta)$$ provides an approximation 
 
-$\mathbb{\hat{E}}_{N}(h)$ to $\mathbb{E_{\pi}}[h(\theta)]$
+$$\mathbb{\hat{E}}_{N}(h)$$ to $$\mathbb{E_{\pi}}[h(\theta)]$$
 
 
 (By strong law of large numbers). 
@@ -178,7 +178,8 @@ where $l$ is a realization of $\mathcal{L}$ from the distribution, $\mathcal{GP}
 
 Consider the hypothetical scenario where it is possible to store $l$ completely and evaluate $I_h(l)$. 
 
-A set of $M$ realisations of $\mathcal{L}$, $\{l_m\}^M_{m=1}$ would lead to $M$ associated estimates of $I_h$, $\{I_h(l_m))\}^M_{m=1}$, which would approximate the posterior distribution of $I_h$ under $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$. 
+A set of $M$ realisations of $\mathcal{L}$, $$\{l_m\}^M_{m=1}$$ would lead to $M$ associated estimates of $I_h$,
+$$\{I_h(l_m))\}^M_{m=1}$$, which would approximate the posterior distribution of $I_h$ under $\mathcal{GP}(\sum_{c=1}^{C}\mu_c(\theta),\sum_{c=1}^{C}\Sigma_c(\theta))$. 
 
 
 
