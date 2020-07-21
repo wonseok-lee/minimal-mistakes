@@ -7,8 +7,6 @@ use_math: true
 
 ## Weekly Meeting 20200722
 
-$\{\}$
-
 Christopher Nemeth and Chris Sherlock. (2018). *Merging MCMC Subposteriors through Gaussian-Process Approximations.* Bayesian Analysis
 
 
@@ -45,7 +43,7 @@ $$
 
 #### Fit GP to each subposterior
 
-Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors $\{\pi_{c}(\vartheta)\}_{c=1}^{C}$
+Parallelising the MCMC procedure over $C$ computing nodes results in $C$ subposteriors $'{'\pi_{c}(\vartheta)'}'_{c=1}^{C}$
 
 The MCMC algorithm for each subposterior, $c$, has been iterated $J$ times to give $\mathcal{D}_c = \{\vartheta_j, \mathcal{l}_c(\vartheta_j)\}$, 
 
