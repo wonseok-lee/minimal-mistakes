@@ -147,7 +147,13 @@ $$
 w(\theta_i) = \frac{\pi(\theta_i)}{\hat{\pi}_E(\theta_i)}
 $$ 
 
-Define $\hat{Z}_N$ and $w_N(\theta)$ provides an approximation $\mathbb{\hat{E}}_N(h)$ to $\mathbb{E}_{\pi}[h(\theta)]$(By strong law of large numbers). 
+Define $\hat{Z_{N}}$ and $w_{N}(\theta)$ provides an approximation 
+
+$$
+\mathbb{\hat{E}}_N(h)$ to $\mathbb{E}_{\pi}[h(\theta)]
+$$
+
+(By strong law of large numbers). 
 
 
 
@@ -159,7 +165,7 @@ Since the unknown normalising constants for both $\pi$ and $\hat{\pi}_E$ appear 
 
 
 
-######  Gaussian-process importance sampler
+######  3. Gaussian-process importance sampler
 
 
 
