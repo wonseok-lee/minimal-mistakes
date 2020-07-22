@@ -200,3 +200,181 @@ We can also find that gradient descent convergence does not need $f$ to be a con
 
 
 What about function value?
+
+
+#### Mirror Descent Lemma
+
+
+
+In Gradient Descent convergence does not need $f$ to be a convex function!
+
+But it is only convergence in gradient.
+
+What about function value? $\Rightarrow$ Mirror Descent Lemma
+
+
+
+The Mirror Descent Lemma for the update $x_{t+1} = x_t − \eta\nabla f(x_t)$ on a convex function $f$.
+
+Before that, there is a important fact.
+
+>**FACT1(important)**
+>
+>
+>$$
+>\begin{align*}
+>\langle x_t-x_{t+1}, y-x_t \rangle &= x_t^Ty - x_t^Tx_t -x_{t+1}^Ty +x_{t+1}^Tx_t \\
+>&= -\frac{1}{2}[x_t^Tx_t-2x_t^Ty +2x_{t+1}^Ty-2x_{t+1}^Tx_{t}+x_t^Tx_t] \\
+>&= -\frac{1}{2}[x_t^Tx_t-2x_t^Ty+y^Ty -y^Ty +2x_{t+1}^Ty-x_{t+1}^Tx_{t+1}+x_{t+1}^Tx_{t+1} -2x_{t+1}^Tx_{t}+x_t^Tx_t] \\
+>&= -\frac{1}{2}[\Vert x_t-y\Vert_2^2-\Vert y-x_{t+1}\Vert_2^2 + \Vert x_{t+1}-x_t\Vert_2^2] 
+>\end{align*}
+>$$
+
+
+
+
+
+For any point $y$, by the lower linear bound, we have
+
+
+$$
+f(y) \geq f(x)+\langle \nabla f(x),y-x \rangle
+$$
+
+
+> **Three Terms Mirror Descent Lemma**
+>
+> For every point $y$,
+>
+> 
+> $$
+> f(y) \geq f(x)+\langle \nabla f(x),y-x \rangle
+> $$
+> Put $x=x_t$. Then,
+>
+> 
+> $$
+> \begin{align*}
+> f(x_t) &\leq f(y)-\langle \nabla f(x),y-x_t \rangle \\
+> &= f(y)\ -\frac{1}{\eta} \langle x_t-x_{t+1},y-x_t\rangle 
+> \\
+> \\
+> &\text{use the FACT1}
+> \\
+> \\
+> &=f(y)\ +\frac{1}{2\eta}(\Vert x_t-y\Vert_2^2-\Vert y-x_{t+1}\Vert_2^2 + \Vert x_{t+1}-x_t\Vert_2^2)
+> \end{align*}
+> $$
+
+let $y= x^{\ast}:=\underset{x \in \mathcal{D}}{\mathbb{argmin}}f(x)$
+
+Sum the above inequality $\text{from}\ t= 0\ \text{to}\ t= T-1$
+
+
+$$
+\begin{align*}
+\sum_{t=0}^{T-1}f(x_t) &\leq Tf(x^{\ast}) +\frac{1}{2\eta}\sum_{t=0}^{T-1}(\Vert x_t-x^{\ast}\Vert_2^2-\Vert x^{\ast}-x_{t+1}\Vert_2^2 + \Vert x_{t+1}-x_t\Vert_2^2) \\
+&= Tf(x^{\ast}) +\frac{1}{2\eta}(\Vert x_0-x^{\ast}\Vert_2^2-\Vert x^{\ast}-x_{T}\Vert_2^2 + \sum_{t=0}^{T-1}\Vert x_{t+1}-x_t\Vert_2^2) \\
+\end{align*}
+$$
+
+
+It implies, 
+
+
+$$
+\begin{align*}
+&\Rightarrow \sum_{t=0}^{T-1}f(x_t) \leq Tf(x^{\ast}) +\frac{1}{2\eta}(\Vert x_0-x^{\ast}\Vert_2^2-\Vert x^{\ast}-x_{T}\Vert_2^2 + \sum_{t=0}^{T-1}\Vert x_{t+1}-x_t\Vert_2^2) 
+\\
+\\
+&\Rightarrow \frac{1}{T}\sum_{t=0}^{T-1}f(x_t) \leq f(x^{\ast}) +\frac{1}{2\eta T}(\Vert x_0-x^{\ast}\Vert_2^2-\Vert x^{\ast}-x_{T}\Vert_2^2 + \sum_{t=0}^{T-1}\Vert x_{t+1}-x_t\Vert_2^2)
+\\
+\\
+&\text{remove the negative term}
+\\
+\\
+&\Rightarrow \frac{1}{T}\sum_{t=0}^{T-1}f(x_t) \leq f(x^{\ast}) +\frac{1}{2\eta T}(\Vert x_0-x^{\ast}\Vert_2^2+ \sum_{t=0}^{T-1}\Vert x_{t+1}-x_t\Vert_2^2)
+\\
+\\
+&\text{use $x_{t+1} = x_t -\nabla f(x_t)$}
+\\
+\\
+&\Rightarrow \frac{1}{T}\sum_{t=0}^{T-1}f(x_t) \leq f(x^{\ast}) +\frac{1}{2\eta T}\Vert x_0-x^{\ast}\Vert_2^2+ \frac{\eta}{2T}\sum_{t=0}^{T-1}\Vert \nabla f(x_t)\Vert_2^2
+\\
+\\
+\end{align*}
+$$
+
+
+Here, think about Gradient Descent Lemma (when $\eta \leq \frac{1}{L}$) - **FACT2**
+
+
+$$
+\begin{align*}
+& \ \ \ \ \ \ \ f(x_{t+1}) \leq f(x_t) - \frac{\eta}{2}\Vert \nabla f(x_t)\Vert_{2}^2 \\
+\\
+&\Rightarrow \frac{\eta}{2T}\sum_{t=0}^{T-1}\Vert \nabla f(x_t)\Vert_2^2 \leq f(x_0) -f(x_T) \leq f(x_0) - f(x^{\ast})
+
+\end{align*}
+$$
+
+
+Also, L-smoothness of $f$ (and $\nabla f(x^{\ast})=0$) - **FACT3**
+
+
+$$
+f(x_0) \leq f(x^{\ast}) +\frac{L}{2}\Vert x_0-x^{\ast}\Vert_2^2
+$$
+
+
+Use **FACT 2,3**
+
+
+$$
+\begin{align*}
+\frac{1}{T}\sum_{t=0}^{T-1}f(x_t) &\leq f(x^{\ast}) +\frac{1}{2\eta T}\Vert x_0-x^{\ast}\Vert_2^2+ \frac{\eta}{2T}\sum_{t=0}^{T-1}\Vert \nabla f(x_t)\Vert_2^2
+\\
+\\
+&\leq f(x^{\ast}) +\frac{1}{T}(\frac{1}{2\eta}\Vert x_0-x^{\ast}\Vert_2^2+ f(x_0) - f(x^{\ast}))
+\\
+\\
+&\leq f(x^{\ast}) +\frac{1}{T}(\frac{1}{2\eta}\Vert x_0-x^{\ast}\Vert_2^2+ \frac{L}{2}\Vert x_0-x^{\ast}\Vert_2^2)
+\\
+\\
+&= f(x^{\ast}) +\frac{\Vert x_0-x^{\ast}\Vert_2^2}{T}(\frac{1}{2\eta}+ \frac{L}{2})
+\end{align*}
+$$
+
+
+And we have $f(x_T) \leq f(x_t)$ for every $t\leq T$ and $\eta \leq \frac{1}{L}$. Hence
+
+
+$$
+\begin{align*}
+f(x_T) &\leq f(x^{\ast}) +\frac{\Vert x_0-x^{\ast}\Vert_2^2}{T}(\frac{1}{2\eta}+ \frac{L}{2})
+\\
+\\
+& \leq f(x^{\ast}) +\frac{\Vert x_0-x^{\ast}\Vert_2^2}{\eta T}
+\end{align*}
+$$
+
+
+###### BUT WHAT HAVE WE DONE?
+
+
+
+> Recall: Mirror Descent Lemma
+> $$
+> f(x_t) \leq f(y)\ +\frac{1}{2\eta}(\Vert x_t-y\Vert_2^2-\Vert y-x_{t+1}\Vert_2^2 + \Vert x_{t+1}-x_t\Vert_2^2)
+> $$
+
+
+
+$\Vert x_{t+1} - x_t\Vert_2^2$ is $O(\eta^2)$. Thus for sufficiently small $\eta$:
+
+Instead of decreasing the function value of $f$ , the algorithm is actually decreasing the distance between $x_t$ to $x^{\ast}$
+
+
+
+That’s why its called Mirror Descent. It is extremely important as well for general problems beyond convexity. There, reddecreasing the distance between $x_t$ to $x^{\ast}$ is replaced by a decreasing potential function.
+
