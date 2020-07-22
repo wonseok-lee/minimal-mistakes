@@ -148,7 +148,7 @@ $$
 For every $\eta \leq \frac{1}{L}$, $\eta^{2}\frac{L}{2} \leq \frac{\eta}{2}$. Then,
 
 $$
-f(x_{t+1}) \leq f(x_{t}) -\eta\frac{L}{2}\Vert\nabla f(x_{t})\Vert_{2}^{2}
+f(x_{t+1}) \leq f(x_{t}) -\frac{\eta}{2}\Vert\nabla f(x_{t})\Vert_{2}^{2}
 $$
 
 
@@ -175,7 +175,7 @@ But if the gradient is too small, slowly converges. Use trade off between fast a
 >\Vert\nabla f(x_T)\Vert_2^{2} \leq \epsilon
 >$$
 >
->We need $T_{\epsilon} = \frac{2(f(x_0) - \underset{x}{\mathbb{min}}f(x)}{\eta\epsilon}$ interations.
+>We need $T_{\epsilon} = \frac{2(f(x_0) - \underset{x}{\mathbb{min}}f(x))}{\eta\epsilon}$ interations.
 >
 >proof)
 >
