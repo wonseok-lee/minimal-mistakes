@@ -1,6 +1,6 @@
 ---
-title: "Convex Optimization 1"
-date: 2020-07-19 00:00:28 -0400
+title: "Convex Optimization 2"
+date: 2020-07-24 00:00:28 -0400
 categories: convex optimization
 use_math: true
 ---
@@ -330,6 +330,9 @@ f(x_t) - f(x^{\ast}) &\leq \langle \nabla f(x_t), x_t -x^{\ast}\rangle
 \\
 \\
 &\leq \frac{1}{2\eta}[\Vert x^{\ast}-I_t\Vert_2^2-\Vert x^{\ast}-I_{t+1}\Vert_2^2 + 2L\eta^2(f(x_t)-f(s_{t+1}))] + \frac{1-\tau}{\tau}\langle \nabla f(x_t), s_t -x_t\rangle
+\\
+\\
+&\leq \frac{1}{2\eta}[\Vert x^{\ast}-I_t\Vert_2^2-\Vert x^{\ast}-I_{t+1}\Vert_2^2 + 2L\eta^2(f(x_t)-f(s_{t+1}))] + \frac{1-\tau}{\tau}(f(s_t)-f(x_{t}))
 \\
 \\
 &\text{pick $\tau$ s.t $L\eta = \frac{1-\tau}{\tau}$}
