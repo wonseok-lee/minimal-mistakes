@@ -5,6 +5,12 @@ categories: Machine-learning
 use_math: true
 ---
 
+이 글은 Carneige Mellon University의 Yiming Yang 교수님의 Machine Learning for Text Mining의 수업 중 일부분을 정리한 것입니다. 
+
+
+**증명 과정이 저도 매우 마음에 들지 않아 추후 업데이트 할 예정입니다.**
+
+
 ## Non-negative Matrix Factorization and Probabilistic Matrix Factorization
 
 Denote that NMF is Non-negative Matrix Factorization, PMF is Probabilistic Matrix Factorization
