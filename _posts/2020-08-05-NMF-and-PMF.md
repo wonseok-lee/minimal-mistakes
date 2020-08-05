@@ -271,3 +271,11 @@ Data Set은
 
 
 그랬더니 dimension of latent factor가 커질수록 PMF의 Root MSE가 훨씬 더 좋았다.
+
+
+
+*References*
+
+1. DD Lee, HS Seung. Algorithms for non-negative matrix factorization. NIPS 2001, pp 556-562.
+
+2. Andriy Mnih and Ruslan R. Salakhutdinov. Probabilistic matrix factorization. NIPS 2008, pp 1257-1264.
