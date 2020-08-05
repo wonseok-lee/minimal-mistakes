@@ -23,9 +23,9 @@ Denote that NMF is Non-negative Matrix Factorization, PMF is Probabilistic Matri
   $$
   
 
-- SVD  requires $\bold{orthogonal}$ factorization
+- SVD  requires **orthogonal** factorization
 
-- NMF requires $\bold{non-negative}$ factorization
+- NMF requires **non-negative** factorization
 
 - SVD는 $U_{r}\Sigma_{r}V_r^T$로 해줄때, orthogonal basis를 이용하지만, NMF는 단순히 모든 element들이 양수인 W,H로 분해하는 방법이다.
 
@@ -33,21 +33,28 @@ Denote that NMF is Non-negative Matrix Factorization, PMF is Probabilistic Matri
 
 NMF, VQ, PCA를 image processing할때 쓰는데, NMF는 original 이미지를 approximate한다. 
 
+
 These properties lead to different factorization results and require different algorithms for optimization.
+
 
 대략적으로 이걸 왜 할까라는 생각을 해보면, 대략적으로 이렇게 생각 할 수 있습니다. 
 
+
 **The reason why NMF has become so popular is because of its ability to automatically extract sparse and easily interpretable factors.**
+
 
 대략적인 행렬로 분해하는것이기 때문에 결과 값으로 얻은 행렬들의 곱이 원래 행렬이 얼마나 "가까운"지를 측정해야한다.
 
+
 **Definition1.** Frobenius norm of a matrix (Euclidean distance) is 
+
 $$
 \Vert X - \hat{X}^2\Vert = \sum_{i,j} (X_{ij} - \hat{X_{ij}})^2
 $$
 
 
 **Definitiion2.** Divergence of a matrix 
+
 $$
 D(X\Vert\hat{X}) = \sum_{i,j}(X_{ij}log\frac{X_{ij}}{\hat{X_{ij}}} - X_{ij} + \hat{X_{ij}})
 $$
@@ -56,15 +63,18 @@ $$
 다른 metric들도 굉장히 많은데, 문제마다 metric은 상황에 맞게 알맞은 걸 적용하면 된다.
 
 Two Optimization Problems
+
 $$
 1.\ \min_{W,H}\Vert X - WH\Vert^2\ \ \text{s.t}\ \ W,H \geq 0 \\
 2.\ \min_{W,H}D(X\Vert W,H)^2\ \ \text{s.t}\ \ W,H \geq 0
 $$
+
 These problems are convex in W only if H is fixed or vise versa, but not convex in both variables together. Only local minima can be guaranteed.
 
 
 
 *Udapting Rule wrt 1.*
+
 $$
 W_{ik} :=  W_{ik}\frac{(XH^T)_{ij}}{(WHH^T)_{ik}}, \\
 H_{ik} :=  H_{ik}\frac{(W^TX)_{ij}}{(W^TWH)_{ik}}
@@ -72,6 +82,7 @@ $$
 
 
 *Udapting Rule wrt 2.*
+
 $$
 W_{ik} :=  W_{ik}\frac{\sum_{j} H_{kj}X_{ij}/(WH)_{ij}}{\sum_{j'}H_{j'k}}, \\
  H_{kj} :=  H_{kj}\frac{\sum_{i}W_{ik}X_{ij}/(WH)_{ij}}{\sum_{i'}W_{i'k}}
@@ -90,12 +101,12 @@ $$
 
   
 
-업데이트 하는 방법은 start with an initial value of $W_0$ and $H_0$. Then, 2 update equations one for $W$ and $H$.
-update $W^{t+1}$ using $H_t$ and $H^{t+1}$ using $W_t$. 
+업데이트 하는 방법은 start with an initial value of $W_0$ and $H_0$. Then, 2 update equations one for $W$ and $H$. update $W^{t+1}$ using $H_t$ and $H^{t+1}$ using $W_t$. 
 
 Problem 1의 H에대해서 증명해보자. 
 
 let $\eta_{kj} = \frac{H_{kj}}{(W^TWH)_{kj}}$ then,
+
 $$
 \begin{align*}
 H_{kj} &= \frac{H_{kj}}{(W^TWH)_{kj}} \\
@@ -106,11 +117,12 @@ $$
 
 We want to show that $[(W^TX)_{kj}-(W^TWH)_{kj}] = -c[\nabla_{H}f(W,H)]_{kj}$,  where $c$ is a constant.
 
-The cost function(f) is Frobenius norm(**Definition1**).
+The cost function($f$) is Frobenius norm(**Definition1**).
 
 
 
-**Remark) $(WH)_{ij} = W_iH_j$, $f = \sum_{i,j}\Vert X_{ij}-(WH)_{ij}\Vert^2$**
+**Remark**) $(WH)_{ij} = W_iH_j$, $f = \sum_{i,j}\Vert X_{ij}-(WH)_{ij}\Vert^2$
+
 $$
 \frac{\partial f}{\partial H} = -2W^T(X-WH) = -2(W^TX-W^TWH)
 $$
