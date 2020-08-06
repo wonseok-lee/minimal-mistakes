@@ -121,7 +121,7 @@ H_{kj} &= \frac{H_{kj}}{(W^TWH)_{kj}} \\
 $$
 
 
-We want to show that $\[(W^TX)_{kj}-(W^TWH)_{kj}\] = -c\[\nabla_{H}f(W,H)\]_{kj}, \text{where} c \text{is a constant}$.
+We want to show that $[(W^TX)_{kj}-(W^{T}WH)_{kj}] = -c[\nabla_{H}f(W,H)]_{kj}, \text{where} c \text{is a constant}$.
 
 The cost function($f$) is Frobenius norm(**Definition1**).
 
