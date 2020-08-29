@@ -64,6 +64,7 @@ Keywords: fast and good(tradeoff between them).
 >
 >
 >It implies that
+>
 >$$
 >\frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta
 >$$
