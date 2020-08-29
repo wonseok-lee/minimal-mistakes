@@ -46,7 +46,6 @@ Then, by convexity(definition), for every $\lambda \in (0,1)$,
 
 $$ \begin{align*}f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\&\leq (1-\lambda)f(x) + \lambda f(y) \\ &\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \end{align*} $$
 
-$$ \begin{align*} \theta \sim \text{DL}_{a_n} \iff \theta_j \vert \phi_j , \tau &\sim \text{DE}(\phi_j \tau) \ \phi &\sim \text{Dir}(a, \ldots , a) \tag{2}\ \tau &\sim \Gamma(na, 1/2) \end{align*} $$
 
 It implies that 
 
