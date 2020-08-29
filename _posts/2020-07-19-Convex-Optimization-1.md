@@ -3,6 +3,7 @@ title: "Convex Optimization 1"
 date: 2020-07-19 00:00:28 -0400
 categories: convex optimization
 use_math: true
+
 ---
 
 # Why Convex Optimization is important?
@@ -21,7 +22,8 @@ I will write about below contents.
 7. Frank-Wolfe (projection free) method.
 8. Stochastic variance reduction techniques: SVRG, SAG, SAGA.
 
-Those are convex optimization algorithms, but the real-world problems in machine learning nowadays are mostly non-convex. Adaptive algorithms like Adagrad, accelerated method like the Nestrov's momentum and Katyusha momentum, they are also designed for convex optimization, yet they (or their variants) can be used in non-convex optimization as well.
+Those are convex optimization algorithms, but the real-world problems in machine learning nowadays are mostly non-convex. Adaptive algorithms like Adagrad, accelerated method like the
+Nestrov's momentum and Katyusha momentum, they are also designed for convex optimization, yet they (or their variants) can be used in non-convex optimization as well.
 
 Optimization algorithm: Solve **$\underset{x \in \mathcal{D}}{\mathbb{min}}f(x)$** as fast as possible and as good as possible.
 
@@ -39,9 +41,15 @@ Keywords: fast and good(tradeoff between them).
 >
 >For every differentiable convex function $f$ over a convex set $\mathcal{D}$, for every point $x, y \in \mathcal{D}$, $f(y) \geq f(x) + \langle\nabla f(x), y-x\rangle$
 >
+>
+>
 >proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\nabla f, y-x\rangle-\delta$ for $\delta>0$.
 >
+>
+>
 >Then, by convexity(definition), for every $\lambda \in (0,1)$, 
+>
+>
 >$$
 >\begin{align*}
 >f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
@@ -51,10 +59,14 @@ Keywords: fast and good(tradeoff between them).
 >\end{align*}
 >$$
 >
+>
+>
 >It implies that
 >$$
 >\frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta
 >$$
+>
+>
 >
 >Let $\lambda \rightarrow 0^{+}$, then, $\langle\nabla f(x), y-x\rangle \leq \langle\nabla f(x), y-x\rangle -\delta$
 >
@@ -242,13 +254,13 @@ $$
 >
 > For every point $y$,
 >
-> 
+>
 > $$
 > f(y) \geq f(x)+\langle \nabla f(x),y-x \rangle
 > $$
 > Put $x=x_t$. Then,
 >
-> 
+>
 > $$
 > \begin{align*}
 > f(x_t) &\leq f(y)-\langle \nabla f(x),y-x_t \rangle \\
@@ -357,8 +369,6 @@ $$
 
 ###### BUT WHAT HAVE WE DONE?
 
-
-
 > Recall: Mirror Descent Lemma
 > $$
 > f(x_t) \leq f(y)\ +\frac{1}{2\eta}(\Vert x_t-y\Vert_2^2-\Vert y-x_{t+1}\Vert_2^2 + \Vert x_{t+1}-x_t\Vert_2^2)
@@ -373,4 +383,3 @@ Instead of decreasing the function value of $f$ , the algorithm is actually decr
 
 
 That’s why its called Mirror Descent. It is extremely important as well for general problems beyond convexity. There, reddecreasing the distance between $x_t$ to $x^{\ast}$ is replaced by a decreasing potential function.
-
