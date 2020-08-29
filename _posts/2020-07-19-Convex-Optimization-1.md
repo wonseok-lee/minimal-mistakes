@@ -4,14 +4,14 @@ date: 2020-07-19 00:00:28 -0400
 categories: convex optimization
 use_math: true
 
+
 ---
 
 # Why Convex Optimization is important?
 
-Convex optimization is not as useful as before in machine learning, because the problems have changed.
-Then why study **Convex Optimization**? Optimization is really important in machine learning now, just not convex optimization. 
+Convex optimization 은 전과 다르게 그렇게 유용하지 않다. 우리가 마주하는 문제들은 전과 다른 문제(non-convex)이기 때문이다.  그러면 **Convex Optimization**을 왜 공부할까(~~이수학점 채워야지~~)? 그래도 최적화는 머신러닝에서 아직 매우 중요하다. 단지 convex가 아닐 뿐이다.  
 
-I will write about below contents.
+앞으로 다룰 내용은 다음과 같다.
 
 1. Gradient Descent, Stochastic Gradient Descent.
 2. Proximal Gradient Descent.
@@ -22,10 +22,9 @@ I will write about below contents.
 7. Frank-Wolfe (projection free) method.
 8. Stochastic variance reduction techniques: SVRG, SAG, SAGA.
 
-Those are convex optimization algorithms, but the real-world problems in machine learning nowadays are mostly non-convex. Adaptive algorithms like Adagrad, accelerated method like the
-Nestrov's momentum and Katyusha momentum, they are also designed for convex optimization, yet they (or their variants) can be used in non-convex optimization as well.
+위의 알고리즘들은 convex optimizaiton 알고리즘이지만, 대부분의 머신러닝에서의 real-world 문제들은 non-convex이다. Adaptive algorithms like Adagrad, accelerated method like the Nestrov's momentum and Katyusha momentum, they are also designed for convex optimization, yet they (or their variants) can be used in non-convex optimization as well.
 
-Optimization algorithm: Solve **$\underset{x \in \mathcal{D}}{\mathbb{min}}f(x)$** as fast as possible and as good as possible.
+Optimization algorithm:  **$\underset{x \in \mathcal{D}}{\mathbb{min}}f(x)$** 을 가능한 빠르고 정확하게 해를 구하기를 원한다.
 
 Keywords: fast and good(tradeoff between them).
 
@@ -37,37 +36,31 @@ Keywords: fast and good(tradeoff between them).
 >
 >A function $f$ over a convex set $\mathcal{D}$ is convex if $f((1-\lambda)x + \lambda y) \leq (1-\lambda)f(x) + \lambda f(y)$
 
->**property of a convex function**
->
->For every differentiable convex function $f$ over a convex set $\mathcal{D}$, for every point $x, y \in \mathcal{D}$, $f(y) \geq f(x) + \langle\nabla f(x), y-x\rangle$
->
->
->
->proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\nabla f, y-x\rangle-\delta$ for $\delta>0$.
->
->
->
->Then, by convexity(definition), for every $\lambda \in (0,1)$, 
->
->
->$$\begin{align*}
->f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
->&\leq (1-\lambda)f(x) + \lambda f(y) \\ 
->&\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
->&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
->\end{align*}$$
->
->
->
->It implies that
->
->$$ \frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta $$
->
->
->
->Let $\lambda \rightarrow 0^{+}$, then, $\langle\nabla f(x), y-x\rangle \leq \langle\nabla f(x), y-x\rangle -\delta$
->
->Contradiction!
+**property of a convex function**
+
+For every differentiable convex function $f$ over a convex set $\mathcal{D}$, for every point $x, y \in \mathcal{D}$, $f(y) \geq f(x) + \langle\nabla f(x), y-x\rangle$
+
+proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\nabla f, y-x\rangle-\delta$ for $\delta>0$.
+
+Then, by convexity(definition), for every $\lambda \in (0,1)$, 
+
+$$ \begin{align*}f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\&\leq (1-\lambda)f(x) + \lambda f(y) \\ &\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta\\ \end{align*} $$
+
+
+
+It implies that 
+
+
+
+$$ \frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta $$
+
+
+
+Let $\lambda \rightarrow 0^{+}$, then, $\langle\nabla f(x), y-x\rangle \leq \langle\nabla f(x), y-x\rangle -\delta$
+
+
+
+*Contradiction!*
 
 
 
