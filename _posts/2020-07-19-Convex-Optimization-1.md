@@ -44,7 +44,7 @@ proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\na
 
 Then, by convexity(definition), for every $\lambda \in (0,1)$, 
 
-$$ \begin{align*}f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\&\leq (1-\lambda)f(x) + \lambda f(y) \\ &\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta\\ \end{align*} $$
+$$ \begin{align*}f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\&\leq (1-\lambda)f(x) + \lambda f(y) \\ &\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \end{align*} $$
 
 
 
