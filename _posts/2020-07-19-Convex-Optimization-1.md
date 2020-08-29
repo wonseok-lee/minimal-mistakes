@@ -21,8 +21,7 @@ I will write about below contents.
 7. Frank-Wolfe (projection free) method.
 8. Stochastic variance reduction techniques: SVRG, SAG, SAGA.
 
-Those are convex optimization algorithms, but the real-world problems in machine learning nowadays are mostly non-convex. Adaptive algorithms like Adagrad, accelerated method like the
-Nestrov's momentum and Katyusha momentum, they are also designed for convex optimization, yet they (or their variants) can be used in non-convex optimization as well.
+Those are convex optimization algorithms, but the real-world problems in machine learning nowadays are mostly non-convex. Adaptive algorithms like Adagrad, accelerated method like the Nestrov's momentum and Katyusha momentum, they are also designed for convex optimization, yet they (or their variants) can be used in non-convex optimization as well.
 
 Optimization algorithm: Solve **$\underset{x \in \mathcal{D}}{\mathbb{min}}f(x)$** as fast as possible and as good as possible.
 
@@ -43,7 +42,6 @@ Keywords: fast and good(tradeoff between them).
 >proof) Suppose there is an  $y \in \mathcal{D}$ s.t $f(y) \leq f(x) + \langle\nabla f, y-x\rangle-\delta$ for $\delta>0$.
 >
 >Then, by convexity(definition), for every $\lambda \in (0,1)$, 
->
 >$$
 >\begin{align*}
 >f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
@@ -53,9 +51,7 @@ Keywords: fast and good(tradeoff between them).
 >\end{align*}
 >$$
 >
->
 >It implies that
->
 >$$
 >\frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta
 >$$
