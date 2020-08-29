@@ -52,10 +52,12 @@ Keywords: fast and good(tradeoff between them).
 >
 >$$
 >\begin{align*}
+>
 >f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
 >&\leq (1-\lambda)f(x) + \lambda f(y) \\ 
 >&\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
 >&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
+>
 >\end{align*}
 >$$
 >
