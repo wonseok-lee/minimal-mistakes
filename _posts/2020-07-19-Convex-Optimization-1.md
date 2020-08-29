@@ -50,24 +50,18 @@ Keywords: fast and good(tradeoff between them).
 >Then, by convexity(definition), for every $\lambda \in (0,1)$, 
 >
 >
->$$
->\begin{align*}
->
+>$$\begin{align*}
 >f((1-\lambda)x + \lambda y) &= f(x+\lambda(y-x))\\
 >&\leq (1-\lambda)f(x) + \lambda f(y) \\ 
 >&\leq (1-\lambda) f(x) + \lambda f(x)+\lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
 >&= f(x) + \lambda \langle\nabla f, y-x\rangle-\lambda \delta \\
->
->\end{align*}
->$$
+>\end{align*}$$
 >
 >
 >
 >It implies that
 >
->$$
->\frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta
->$$
+>$$ \frac{f(x+\lambda(y-x))}{\lambda} \leq \langle\nabla f(x), y-x\rangle -\delta $$
 >
 >
 >
